@@ -58,8 +58,8 @@ function createRandomCircle() {
     const circle = document.createElement('div')
     const size = getRandomNumber(10, 60)
     const {width, height} = board.getBoundingClientRect()
-    const x = getRandomNumber(0, width)
-    const y = getRandomNumber(0, height)
+    const x = getRandomNumber(0, width - size)
+    const y = getRandomNumber(0, height - size)
     const color = gerRandomColor()
 
     circle.classList.add('circle')
@@ -68,6 +68,7 @@ function createRandomCircle() {
     circle.style.top = `${x}px`
     circle.style.left = `${y}px`
     circle.style.backgroundColor = `${color}`
+    circle.style.boxShadow = `0 0 2px ${color}, 0 0 10px ${color}`
 
     board.append(circle)
 }
